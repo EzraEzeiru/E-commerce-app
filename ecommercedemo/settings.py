@@ -71,6 +71,8 @@ DATABASES = {
     }
 }
 
+# django.db.models.BigAutoField = True
+
 if ENVIRONMENT == 'production':
     DEBUG = False
     SECRET_KEY = os.getenv('SECRET_KEY')
