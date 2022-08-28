@@ -13,6 +13,7 @@ def checkout_view(request):
 
 class ItemsView(ListView):
     model = Item
+    paginate_by = 10
     template_name = "items-page.html"
 
 

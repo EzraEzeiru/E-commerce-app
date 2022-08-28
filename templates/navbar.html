@@ -1,4 +1,5 @@
-    <!-- Navbar -->
+{% load cart_template_tags %}
+<!-- Navbar -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
     <div class="container">
 
@@ -14,11 +15,13 @@
       </button>
 
       <!-- Links -->
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
         <!-- Left -->
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
+            {% if request.user.is_authenticated %}
             <a class="nav-link waves-effect" href="{% url 'core:home' %}">Home
               <span class="sr-only">(current)</span>
             </a>
@@ -33,10 +36,9 @@
 
         <!-- Right -->
         <ul class="navbar-nav nav-flex-icons">
-          {% if request.user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link waves-effect">
-              <span class="badge red z-depth-1 mr-1"> 1 </span>
+              <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span>
               <i class="fas fa-shopping-cart"></i>
               <span class="clearfix d-none d-sm-inline-block"> Cart </span>
             </a>

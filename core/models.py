@@ -23,7 +23,10 @@ class Item(models.Model):
     category = models.CharField(max_length=2, choices=CATEGORY_CHOICES)
     label = models.CharField(max_length=1, choices=LABEL_CHOICES)
     slug = models.SlugField()
-    description = models.TextField( )
+    description = models.TextField()
+
+    class Meta:
+        ordering = ['id']
 
     def __str__(self):
         return self.title
